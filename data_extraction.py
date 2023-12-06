@@ -2,6 +2,10 @@
 
 import pandas as pd
 from database_utils import DatabaseConnector
+import tabula
+import requests
+import boto3
+import json
 
 class DataExtractor:
     def read_rds_table(table_name):
@@ -14,29 +18,25 @@ class DataExtractor:
         return df
 
 # ms2 task 4 step 2
-import tabula
 
-class DataExtractor:
     def retrieve_pdf_data():
         pdf_path = "https://data-handling-public.s3.eu-west-1.amazonaws.com/card_details.pdf"
         dfs = tabula.read_pdf(pdf_path, stream=True)
         return dfs
 
 # ms2 task 5 step 1-3
-import requests
-import pandas as pd
 
-header_details = {
+
+    header_details = {
     'x-api-key': 'yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX'
 }
 
-endpoints = {
+    endpoints = {
     'retrieve_store': 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/store_details/{store_number}',
     'number_of_stores': 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/number_stores'
 }
 
 
-class DataExtractor:
     def __init__(self, api_key):
         self.header = {'x-api-key': api_key}
 
@@ -50,10 +50,6 @@ class DataExtractor:
 
 # ms2 task 6 step 1
 
-import boto3
-import pandas as pd
-
-class DataExtractor:
     def __init__(self):
         self.s3_client = boto3.client('s3')
 
@@ -65,6 +61,26 @@ class DataExtractor:
 
     def parse_s3_address(s3_address):
         s3_parts = s3_address.replace('s3://', '').split('/')
+        bucket_name = s3_parts[0]
+        key = '/'.join(s3_parts[1:])
+        return bucket_name, key
+    
+# ms2 task 8
+
+    def __init__(self):
+        self.s3_client = boto3.client('s3')
+
+    def extract_from_s3_json(self, s3_address):
+        bucket_name, key = self.parse_s3_address(s3_address)
+        response = self.s3_client.get_object(Bucket=bucket_name, Key=key)
+        json_data = json.load(response['Body'])
+        df = pd.json_normalize(json_data)
+        return df
+
+   
+    def parse_s3_address(s3_address):
+    
+        s3_parts = s3_address.replace('https://', '').split('/')
         bucket_name = s3_parts[0]
         key = '/'.join(s3_parts[1:])
         return bucket_name, key

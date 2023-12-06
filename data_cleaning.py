@@ -3,7 +3,6 @@
 import pandas as pd
 from data_extraction import DataExtractor
 
-
 class DataCleaning:
     def clean_user_data(df):
         db_datacleaning= DataExtractor()
@@ -12,17 +11,12 @@ class DataCleaning:
         return df
 
 # ms2 task 4 step 3
-import pandas as pd
-from data_extraction import DataExtractor
-
-class DataCleaning:
     def clean_card_data(df):
         # Implement cleaning logic. e.g. handling NULL values, fixing date errors, etc.
 
         return(df)
 
 # ms2 task 5 step 4-5
-class DataCleaning:
     def __init__(self):
         pass
 
@@ -37,8 +31,6 @@ class DataCleaning:
         pass
 
 # ms2 task 6 step 2-4
-
-class DataCleaning:
     def __init__(self):
         pass
 
@@ -61,8 +53,6 @@ class DataCleaning:
 
 
 # ms2 task 7
-
-class DataCleaning:
     def __init__(self):
         pass
 
