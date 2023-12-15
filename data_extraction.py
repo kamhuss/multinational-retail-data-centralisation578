@@ -8,6 +8,7 @@ import boto3
 import json
 
 class DataExtractor:
+
     def read_rds_table(table_name):
         db_connector = DatabaseConnector()
         engine = db_connector.init_db_engine()
@@ -84,3 +85,4 @@ class DataExtractor:
         bucket_name = s3_parts[0]
         key = '/'.join(s3_parts[1:])
         return bucket_name, key
+    
