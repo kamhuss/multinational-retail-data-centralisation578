@@ -1,6 +1,6 @@
 
 # Multinational retail data centralisation Project
-- This is my seconf project in the AiCore course
+- This is my second project in the AiCore course
 - In this project, we create a local PostgreSQL database. We upload data from various sources, process it, create a database schema and run SQL queries. 
 
 # Installation instructions
