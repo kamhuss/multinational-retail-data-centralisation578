@@ -4,7 +4,7 @@
 - In this project, we create a local PostgreSQL database. We upload data from various sources, process it, create a database schema and run SQL queries. 
 
 # Installation instructions
-Used Postgres, AWS (s3), boto3, rest-API, csv, Python (Pandas).
+- Used Postgres, AWS (s3), boto3, rest-API, csv, Python (Pandas).
 
 # Installation instructions
 - Python programming
